@@ -34,13 +34,13 @@ class ShopifyServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->booting(function()
+		$this->app->booting(function()8
 		{
 		  $loader = \Illuminate\Foundation\AliasLoader::getInstance();
 		  $loader->alias('Shopify', 'Mochaka\Shopify\Facades\Shopify');
 		});
 
-        $this->app['shopify'] = $this->app->singleton(function($app)
+		$this->app->singleton('shopify', function($app)
         {
             return new Shopify(Config::get('shopify.url'),Config::get('shopify.apikey'),Config::get('shopify.password'));
         });
