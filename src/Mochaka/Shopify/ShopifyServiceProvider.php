@@ -34,7 +34,7 @@ class ShopifyServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->app->booting(function()8
+		$this->app->booting(function()
 		{
 		  $loader = \Illuminate\Foundation\AliasLoader::getInstance();
 		  $loader->alias('Shopify', 'Mochaka\Shopify\Facades\Shopify');
