@@ -40,7 +40,7 @@ class ShopifyServiceProvider extends ServiceProvider {
 		  $loader->alias('Shopify', 'Mochaka\Shopify\Facades\Shopify');
 		});
 
-        $this->app['shopify'] = $this->app->share(function($app)
+        $this->app['shopify'] = $this->app->singleton(function($app)
         {
             return new Shopify(Config::get('shopify.url'),Config::get('shopify.apikey'),Config::get('shopify.password'));
         });
